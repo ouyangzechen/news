@@ -2,7 +2,7 @@
     require_once './newsData.php';
     header("Content-type: text/html; charset=utf-8");
 
-    if(time()-$createTime>60*60*24) {
+    if(time()-$createTime>60*60*1) {
 
         $url ="http://weixin.sogou.com/weixin?type=1&query=%E6%B5%B7%E6%99%AE%E6%B4%9B%E6%96%AF";
         $data=file_get_contents($url);
