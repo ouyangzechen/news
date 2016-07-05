@@ -24,8 +24,8 @@
         $data=str_replace("&nbsp;","",$data);
         $data=trim($data);
         $data=str_replace("wx_fmt=","wx_fmt.",$data);
-        $data=str_replace('\\\\\/','/',$data);
-//        $data=str_replace("","",$data);
+        $data=str_replace('/s?','http://mp.weixin.qq.com/s?',$data);
+
         preg_match_all('/{title:(.*?)digest:(.*?)content:,fileid:(.*?),content_url:(.*?),source_url:(.*?),cover:(.*?),subtype/',$data,$str_array);
         $arrayDict =array(1=>"title",2=>"digest",3=>"fileid",4=>"content_url",5=>"source_url",6=>"cover");
         $array = array();
