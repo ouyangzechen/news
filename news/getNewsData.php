@@ -1,6 +1,7 @@
 <?php
 require_once './newsData.php';
 header("Content-type: text/html; charset=utf-8");
+header("Access-Control-Allow-Origin: *");
     if(!isset($createTime)||time()-$createTime>60*60*1) {
 
         $url ="http://weixin.sogou.com/weixin?type=1&query=%E6%B5%B7%E6%99%AE%E6%B4%9B%E6%96%AF";
@@ -35,6 +36,7 @@ header("Content-type: text/html; charset=utf-8");
                 $array[$i]['digest'] = $json[$i]->app_msg_ext_info->digest;
                 $array[$i]['content_url'] =str_replace('\/','/','http://mp.weixin.qq.com'.$json[$i]->app_msg_ext_info->content_url);
                 $array[$i]['cover'] = str_replace('\/','/',$json[$i]->app_msg_ext_info->cover);
+                $array[$i]['cover'] = str_replace('=','.',$array[$i]['cover']);
 
             }
             $json =json_encode($array);
